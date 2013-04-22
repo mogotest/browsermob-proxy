@@ -95,7 +95,6 @@ public class BrowserMobProxyHandler extends SeleniumProxyHandler {
     @Override
     protected SslRelay getSslRelayOrCreateNew(URI uri, InetAddrPort addrPort, HttpServer server) throws Exception {
         SslRelay relay = super.getSslRelayOrCreateNew(uri, addrPort, server);
-        relay.setNukeDirOrFile(null);
 
         synchronized (sslRelays) {
             sslRelays.add(relay);
