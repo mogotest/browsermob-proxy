@@ -328,22 +328,6 @@ public class BrowserMobHttpClient {
     }
 
     private URI makeUri(String url) throws URISyntaxException {
-        // MOB-120: check for | character and change to correctly escaped %7C
-        url = url.replace(" ", "%20");
-        url = url.replace(">", "%3C");
-        url = url.replace("<", "%3E");
-        url = url.replace("#", "%23");
-        url = url.replace("{", "%7B");
-        url = url.replace("}", "%7D");
-        url = url.replace("|", "%7C");
-        url = url.replace("\\", "%5C");
-        url = url.replace("^", "%5E");
-        url = url.replace("~", "%7E");
-        url = url.replace("[", "%5B");
-        url = url.replace("]", "%5D");
-        url = url.replace("`", "%60");
-        url = url.replace("\"", "%22");
-
         URI uri = new URI(url);
 
         // are we using the default ports for http/https? if so, let's rewrite the URI to make sure the :80 or :443
